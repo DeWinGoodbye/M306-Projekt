@@ -110,7 +110,6 @@ public class App extends JFrame {
                 setVisible(false);
                 try {
                     ChooseClass chooseClass = new ChooseClass();
-                    //nameLearning = new NameLearning();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -121,6 +120,11 @@ public class App extends JFrame {
         klassenspiegel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
+                    JavaToHTML javaToHTML = new JavaToHTML();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
                 setVisible(false);
             }
         });

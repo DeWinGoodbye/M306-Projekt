@@ -90,7 +90,6 @@ class JavaToHTML extends JFrame {
             buttonPanel.add(button);
         }
 
-
         buttonPanel.setBackground(new Color(25, 25, 75));
         buttons.setBackground(new Color(25, 25, 75));
 
@@ -98,17 +97,14 @@ class JavaToHTML extends JFrame {
         getContentPane().setLayout(new BorderLayout(1, 1));
         getContentPane().add(buttons, BorderLayout.CENTER);
         getContentPane().add(titel, BorderLayout.NORTH);
-
         setVisible(true);
-
-
-
     }
 
     public void chooseClass(int index) throws IOException {
         System.out.println(index);
         dieKlasse = index;
-        NameLearning nameLearning = new NameLearning();
+        getNames();
+        App app = new App();
         setVisible(false);
     }
 
@@ -127,9 +123,6 @@ class JavaToHTML extends JFrame {
         for (int i = 0; i < names.size(); i++) {
             System.out.println(names.get(i));
         }
-
-
-        getNames();
 
 
 
@@ -175,7 +168,7 @@ class JavaToHTML extends JFrame {
     public static void getNames() {
 
         File[] directories = Logic.listOfDirectory;
-        File[] files = directories[2].listFiles();
+        File[] files = directories[dieKlasse].listFiles();//TODO responsive
 
         Vector<Schueler> schuelerVector = new Vector<>();
 
@@ -195,6 +188,7 @@ class JavaToHTML extends JFrame {
 
 
         }
+        System.out.println("auswahl");
         saveJSON(schuelerVector);
     }
 }
