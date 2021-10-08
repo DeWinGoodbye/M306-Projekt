@@ -4,43 +4,41 @@ import control.Logic;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.awt.event.*;
-import java.awt.*;
 import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.Container;
 
+/**
+ * GUI für die Auswahl der Klasse mit der man lernen will,
+ * oder ob man alle Schüler lernen will.
+ *
+ * @author Devin Kutbay
+ * @date 06.10.2021
+ */
 public class ChooseClass extends JFrame {
     private static JButton buttonA = new JButton();
     private JLabel titel;
     private JButton start;
     private JPanel buttons;
     private JPanel buttonPanel;
-    private JPanel title;
     public static int dieKlasse = 0;
-    public static boolean choice =false;
+    public static boolean choice = false;
 
-
-    public ChooseClass() throws IOException{
-        getContentPane().setBackground(new Color(40,45,88));
-        setSize(800,800);
+    public ChooseClass() throws IOException {
+        getContentPane().setBackground(new Color(40, 45, 88));
+        setSize(800, 800);
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setResizable(true);
         titel = new JLabel("Auswahl der Klassen", SwingConstants.CENTER);
-        titel.setForeground(new Color(25,25,25));
+        titel.setForeground(new Color(25, 25, 25));
 
         //Buttons
         start = new JButton("Lernen");
 
         //Border
-        EmptyBorder emptyBorder = new EmptyBorder(75,0,75,0);
+        EmptyBorder emptyBorder = new EmptyBorder(75, 0, 75, 0);
         titel.setBorder(emptyBorder);
 
         //Setzen der Schriftart und Grösse der Buttons und des Titels
@@ -51,9 +49,9 @@ public class ChooseClass extends JFrame {
 
         //Setzten der Farbe der Buttons
 
-        Color buttonFontColor = new Color(255,255,255);
+        Color buttonFontColor = new Color(255, 255, 255);
 
-        titel.setBackground(new Color(23, 27 ,64));
+        titel.setBackground(new Color(23, 27, 64));
         titel.setForeground(buttonFontColor);
 
         //Aligment für die Buttons
@@ -74,7 +72,7 @@ public class ChooseClass extends JFrame {
 
         File[] directories = Logic.listOfDirectory;
 
-        for(int i = 0;i< directories.length;i++) {
+        for (int i = 0; i < directories.length; i++) {
             int temp = i;
             JButton button = new JButton(directories[i].getName());
             button.addActionListener(e -> {
@@ -113,8 +111,13 @@ public class ChooseClass extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Methode für die Auswahl welche Klasse gelernt wird
+     * Geht dann zum Spiel über
+     * @param index die Klasse die ausgewählt wurde
+     * @throws IOException
+     */
     public void chooseClass(int index) throws IOException {
-        System.out.println(index);
         dieKlasse = index;
         NameLearning nameLearning = new NameLearning();
         setVisible(false);

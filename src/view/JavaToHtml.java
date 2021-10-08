@@ -168,7 +168,7 @@ class JavaToHTML extends JFrame {
     public static void getNames() {
 
         File[] directories = Logic.listOfDirectory;
-        File[] files = directories[dieKlasse].listFiles();//TODO responsive
+        File[] files = directories[dieKlasse].listFiles();
 
         Vector<Schueler> schuelerVector = new Vector<>();
 

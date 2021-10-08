@@ -11,9 +11,12 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 /**
+ * Eine Applikation, bei dem der User (Optimal Lehrer) Namen einer Klasse
+ * oder aller Schüler lernen kann.
+ *
  * @author Devin Kutbay
- * @since 05.10.2021
  * @version 1.0
+ * @since 05.10.2021
  */
 
 public class App extends JFrame {
@@ -26,30 +29,32 @@ public class App extends JFrame {
     private JButton leave;
     private JPanel buttons;
     private JPanel buttonPanel;
-    private JPanel title;
     NameLearning nameLearning;
 
-    public App(){
+    /**
+     * Startet dei Applikation
+     */
+    public App() {
         setTitle("view.NameLearning");
-        getContentPane().setBackground(new Color(40,45,88));
-        setSize(800,800);
+        getContentPane().setBackground(new Color(40, 45, 88));
+        setSize(800, 800);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setResizable(true);
 
         titel = new JLabel("Namen- Lernsystem", SwingConstants.CENTER);
-        titel.setForeground(new Color(25,25,25));
+        titel.setForeground(new Color(25, 25, 25));
 
         //Buttons
         start = new JButton("Lernen");
         klassenspiegel = new JButton("Klassenspiegel");
         stats = new JButton("Vergangene Spiele");
-        credits = new JButton("Ersteller");
+        credits = new JButton("Credits");
         leave = new JButton("Beenden");
 
         //Border
-        EmptyBorder emptyBorder = new EmptyBorder(75,0,75,0);
+        EmptyBorder emptyBorder = new EmptyBorder(75, 0, 75, 0);
         titel.setBorder(emptyBorder);
 
         //Setzen der Schriftart und Grösse der Buttons und des Titels
@@ -63,9 +68,9 @@ public class App extends JFrame {
 
         //Setzten der Farbe der Buttons
 
-        Color buttonFontColor = new Color(0,0,0);
+        Color buttonFontColor = new Color(0, 0, 0);
 
-        titel.setBackground(new Color(23, 27 ,64));
+        titel.setBackground(new Color(23, 27, 64));
         titel.setForeground(Color.white);
         start.setForeground(buttonFontColor);
         klassenspiegel.setForeground(buttonFontColor);
@@ -103,7 +108,14 @@ public class App extends JFrame {
         getContentPane().add(buttons, BorderLayout.CENTER);
         getContentPane().add(titel, BorderLayout.NORTH);
 
-        //ActionListener für das start Button
+        ///////////////////////////////////////////////////////////////////////////
+        // ActionListener
+        ///////////////////////////////////////////////////////////////////////////
+
+        /**
+         * ActionListener für den "start" Button
+         * Für das Starten des Spiels (Auswahl der Klasse die man lernen will)
+         */
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -116,7 +128,10 @@ public class App extends JFrame {
             }
         });
 
-        //ActionListener für das klassenspiegel Button
+        /**
+         * ActionListener für den "klassenspiegel" Button
+         * Für das Exportieren einer Klasse zu HTML
+         */
         klassenspiegel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -129,6 +144,9 @@ public class App extends JFrame {
             }
         });
 
+        /**
+         * ActionListener für den "credits" Button
+         */
         credits.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -136,6 +154,10 @@ public class App extends JFrame {
             }
         });
 
+        /**
+         * ActionListener für den "stats" Button
+         * Für die Ausgabe der Statistiken der vergangenen Spiele
+         */
         stats.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -147,6 +169,10 @@ public class App extends JFrame {
             }
         });
 
+        /**
+         * ActionListener für den "leave" Button
+         * Beendet die Applikation
+         */
         leave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -156,7 +182,6 @@ public class App extends JFrame {
 
         setVisible(true);
     }
-
 
 
     public static void main(String[] args) {
