@@ -2,6 +2,7 @@ package control;
 
 import view.ChooseClass;
 import view.NameLearning;
+import view.Result;
 
 import java.io.*;
 import java.awt.*;
@@ -18,6 +19,7 @@ public class Logic {
 
     static int rightAnswer = 0;
     public static String nachricht;
+    public static String stats = "";
 
 
 
@@ -158,8 +160,9 @@ public class Logic {
         FileOutputStream fos = new FileOutputStream("stats.txt", true);
         PrintWriter pw = new PrintWriter(fos);
         pw.println(dtf.format(now));
-        pw.println("\nVon "+NameLearning.length+" "+ NameLearning.correctGuesses +" richtig "+ NameLearning.auswahlKlasse+
-                "\n"+NameLearning.percentage+"% korrekt");
+        pw.println("\n"+NameLearning.length+"/"+ NameLearning.correctGuesses +" richtig "+ NameLearning.auswahlKlasse+
+                "\n"+NameLearning.percentage+"% korrekt"+
+                "\n----------------------------------------------------");
         pw.close();
     }
 
@@ -167,8 +170,12 @@ public class Logic {
         FileInputStream fis = new FileInputStream("stats.txt");
         Scanner in = new Scanner(fis);
         while (in.hasNext()){
-            System.out.println(in.nextLine());
+            stats = stats+"\n"+in.nextLine()+"\n";
         }
+        //showMessageDialog(null, stats);
+        Result result = new Result();
+        result.main();
+
     }
 
     public static void main(String[] args) {

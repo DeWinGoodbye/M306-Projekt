@@ -29,7 +29,7 @@ var URL = "https://api.npoint.io/0032fa0bc1702e0b27e5";
 
             var cell = row.insertCell(-1)
 
-            cell.innerHTML = "<img src=\"" + image + "\"width=\"100px\" height=\"100px\">";
+            cell.innerHTML = "<img src=\..\..\"" + image + "\"width=\"100px\" height=\"100px\">";
 
             cell = row.insertCell(-1)
 
