@@ -1,0 +1,9 @@
+2021/10/08 08:26:24
+Von 21 14 richtig von der Klasse IA21b
+66.666664% korrekt
+2021/10/08 08:29:39
+Von 22 8 richtig von der Klasse IA21a
+36.363636% korrekt
+2021/10/08 08:36:32
+Von 22 8 richtig von der Klasse IA21a
+36.363636% korrekt
